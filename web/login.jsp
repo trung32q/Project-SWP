@@ -43,11 +43,13 @@
                 <a href="forgetPassword.html">Forget your password ?</a>
             </div>
 
+           
             <div class="button-submit">
-                <a href="login">
-                    Submit
-                </a>
+                <button type="submit">Submit</button>
+         
             </div>
+           
+               <h4 style="text-align: center; color: red;">${requestScope.error}</h4>
         </form>
         <div class="form-switch" id="formSwitch">
             Don't have an account ?<a href="register.jsp"> Register here</a>

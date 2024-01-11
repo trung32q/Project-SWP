@@ -4,12 +4,15 @@
  */
 package control;
 
+import Dao.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
@@ -55,7 +58,22 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      String account = request.getParameter("name");
+        String pass = request.getParameter("password");
+
+       AccountDAO dao = new  AccountDAO();
+
+        HttpSession session = request.getSession();
+     
+            if (dao.checkAccount(account,pass)==false) {
+                request.setAttribute("error", "Incorrect userID or Password");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            } else {
+                User UserName = dao.getUser(account);      
+                session.setAttribute("session", UserName.getUsername());
+                request.getRequestDispatcher("Homepage.jsp").forward(request, response);
+            }
+        
     }
 
     /**

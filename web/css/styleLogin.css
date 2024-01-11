@@ -105,7 +105,7 @@ body {
   text-align: center;
 }
 
-.button-submit a {
+.button-submit button {
   display: inline-block;
   padding: 20px 40px; /* Điều chỉnh kích cỡ nút Submit */
   color: #03e9f4;
@@ -117,7 +117,7 @@ body {
   border-radius: 5px;
 }
 
-.button-submit a:hover {
+.button-submit button:hover {
   background-color: #03e9f4;
   color: #fff;
   padding: 25px 45px; /* Kích cỡ lớn hơn khi hover vào */

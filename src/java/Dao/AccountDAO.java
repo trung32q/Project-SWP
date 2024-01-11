@@ -43,15 +43,18 @@ public class AccountDAO extends DBContext { // Follow Java naming conventions fo
 //        return List;
 //    }
 
-      public  User getUser(String email, String password) {
+      public  User getUser(String email) {
       
-        String query = "select * from Account where email=? And Password=?";
-        
+        String query = "select * from Account\n" +
+                 "where email=? ";
         try {
+           
             ps = connection.prepareStatement(query);
+             ps.setString(1, email);
+          
             rs = ps.executeQuery();
             while (rs.next()) {
-             return new User(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getString(2), rs.getString(2), rs.getString(2) );
+             return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7) );
             }
         } catch (Exception e) {
 
@@ -67,18 +70,20 @@ public class AccountDAO extends DBContext { // Follow Java naming conventions fo
             ps.setString(2, password);
             rs = ps.executeQuery();
             if (rs.next()) {
-                User cA = new User( rs.getString("password"),rs.getString("email"));
+           
                 return true;
             }
         } catch (SQLException e) {
-            // Consider logging the exception instead of just printing it
+            
             e.printStackTrace();
         }
         return false;
     }
     public static void main(String[] args) {
          AccountDAO dao =new AccountDAO();
-        boolean hi =dao.checkAccount("trungvdhe172137@fpt.edu.vn","trunglun3q");
+        boolean hi =dao.checkAccount("trungvdhe17217@fpt.edu.vn","trunglun3q");
+        User ha =dao.getUser("trungvdhe172137@fpt.edu.vn");
         System.out.println(hi);
+        System.out.println(ha);
     }
 }
