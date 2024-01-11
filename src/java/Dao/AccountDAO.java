@@ -43,6 +43,21 @@ public class AccountDAO extends DBContext { // Follow Java naming conventions fo
 //        return List;
 //    }
 
+      public  User getUser(String email, String password) {
+      
+        String query = "select * from Account where email=? And Password=?";
+        
+        try {
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+             return new User(rs.getInt(1), rs.getString(2), rs.getString(2), rs.getString(2), rs.getString(2), rs.getString(2) );
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
     public boolean checkAccount(String email, String password) {
         try {
             String sql = "select * from Account\n" +

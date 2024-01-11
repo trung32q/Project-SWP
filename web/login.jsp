@@ -17,7 +17,7 @@
 
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form action="login" >
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -27,11 +27,11 @@
             <span>or use your account</span>
 
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="name" required="">
                 <label>User name</label>
             </div>
             <div class="user-box">
-                <input type="password" name="" required="">
+                <input type="password" name="password" required="">
                 <label>Password</label>
             </div>
 
@@ -44,7 +44,7 @@
             </div>
 
             <div class="button-submit">
-                <a href="#">
+                <a href="login">
                     Submit
                 </a>
             </div>
