@@ -173,7 +173,7 @@
                     <div class="dropdown-content">
                         <a href="#">My Class</a>
                         <a href="#">My Project</a>
-                        <a href="login.jsp">Log Out</a>
+                        <a href="logout">Log Out</a>
                     </div>
                 </div>
 

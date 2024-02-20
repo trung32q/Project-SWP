@@ -26,7 +26,6 @@ import javax.crypto.spec.SecretKeySpec;
 import model.Project;
 import model.User;
 import model.Class;
-import util.Cookie;
 
 /**
  *
@@ -78,15 +77,11 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
-// Use a more secure method to obtain the secret key (e.g., KeyGenerator)
         SecretKey secretKey = generateSecretKey();
-
         AccountDAO dao = new AccountDAO();
         ProjectDAO pdao = new ProjectDAO();
         ClassDAO cdao = new ClassDAO();
         HttpSession session = request.getSession();
-
         String hashed_password = "";
 
         try {
@@ -99,7 +94,6 @@ public class LoginServlet extends HttpServlet {
                 if (dao.checkStatus(email) == 1) {
                     User user = dao.getUser(email);
                     if (user.getId_role() == 1) {
-
                         Cookie loginCookie = new Cookie("username", email);
                         loginCookie.setMaxAge(3600); // Set the maximum age of the cookie in seconds
                         response.addCookie(loginCookie);

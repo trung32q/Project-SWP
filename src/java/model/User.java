@@ -30,10 +30,7 @@ public class User {
         this.Id_role = Id_role;
     }
 
-    public User(String string, String string0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+  
     public int getId_account() {
         return Id_account;
     }

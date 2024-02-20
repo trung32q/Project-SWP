@@ -76,7 +76,7 @@
                 position: absolute;
                 background-color: #fff;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-                z-index: 1;
+                z-index: 2;
             }
 
             .profile-dropdown.open .dropdown-content {
@@ -204,7 +204,7 @@
                     <div class="dropdown-content">
                         <a href="#">My Class</a>
                         <a href="#">My Project</a>
-                        <a href="login.jsp">Log Out</a>
+                        <a href="logout">Log Out</a>
                     </div>
                 </div>
 

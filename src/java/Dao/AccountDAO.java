@@ -52,7 +52,7 @@ public class AccountDAO extends DBContext { // Follow Java naming conventions fo
             ps.setString(1, email);
             rs = ps.executeQuery();
             if (rs.next()) {
-                User cA = new User(rs.getString("password"), rs.getString("email"));
+             
                 return true;
             }
         } catch (SQLException e) {
@@ -208,6 +208,7 @@ public class AccountDAO extends DBContext { // Follow Java naming conventions fo
 //        System.out.println(dao.checkAccount("nguyenthiminhhang141205@gmail.com", "ohvCFjsHBfTFW6oeA30pig=="));
 //        System.out.println(dao.Register("tung7123xbuavai@gmail.com", "tung123"));
         List<User> list = dao.getUserByProject(2);
+        System.out.println(dao.checkExistAccount("nguyenthiminhhang141205@gmail.com"));
         System.out.println(list);
 
 
